@@ -12,7 +12,8 @@ const DebounceInput = React.createClass({
     minLength: React.PropTypes.number,
     debounceTimeout: React.PropTypes.number,
     forceNotifyByEnter: React.PropTypes.bool,
-    forceNotifyOnBlur: React.PropTypes.bool
+    forceNotifyOnBlur: React.PropTypes.bool,
+    multiline: React.PropTypes.bool
   },
 
 
@@ -133,8 +134,10 @@ const DebounceInput = React.createClass({
       }
     } : {};
 
+    const Element = this.props.multiline ? 'textarea' : 'input';
+
     return (
-      <input type="text"
+      <Element type="text"
         {...props}
         value={this.state.value}
         onChange={this.onChange}
